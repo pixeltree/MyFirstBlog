@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from "next/router"
 
 import { Container } from '@/components/Container'
 
@@ -14,6 +15,8 @@ function NavLink({ href, children }) {
 }
 
 export function Footer() {
+  const isHomePage = useRouter().pathname === '/'
+
   return (
     <footer className="mt-32">
       <Container.Outer>
@@ -21,13 +24,12 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-zinc-800">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/speaking">Speaking</NavLink>
-                <NavLink href="/uses">Uses</NavLink>
+                {!isHomePage &&
+                  <NavLink href="/">Back</NavLink>
+                }
               </div>
               <p className="text-sm text-zinc-400">
-                &copy; {new Date().getFullYear()} Spencer Sharp. All rights
+                &copy; {new Date().getFullYear()} Pixeltree Inc. All rights
                 reserved.
               </p>
             </div>
