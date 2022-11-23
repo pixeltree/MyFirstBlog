@@ -1,5 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document'
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
