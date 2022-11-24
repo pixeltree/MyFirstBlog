@@ -6,6 +6,8 @@ import { formatDate } from '@/lib/formatDate'
 import postsApi from "@/api/posts"
 
 function Post({ post }) {
+  const date = new Date(post.createdDate)
+
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
@@ -14,21 +16,21 @@ function Post({ post }) {
         </Card.Title>
         <Card.Eyebrow
           as="time"
-          dateTime={post.createdDate}
+          dateTime={date}
           className="md:hidden"
           decorate
         >
-          {formatDate(post.createdDate)}
+          {formatDate(date)}
         </Card.Eyebrow>
         <Card.Description>{post.body}</Card.Description>
         <Card.Cta>Read post</Card.Cta>
       </Card>
       <Card.Eyebrow
         as="time"
-        dateTime={post.createdDate}
+        dateTime={date}
         className="mt-1 hidden md:block"
       >
-        {formatDate(post.createdDate)}
+        {formatDate(date)}
       </Card.Eyebrow>
     </article>
   )
