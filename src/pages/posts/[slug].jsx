@@ -3,9 +3,9 @@ import postsApi from "@/api/posts"
 import { postParameters } from "@/utilities/postUtilities"
 
 export async function getStaticPaths() {
-  const posts = await postsApi.getPosts();
-
-  const postParams = postParameters(posts)
+  const posts = await postsApi.getPosts()
+  
+  const postParams = posts ? postParameters(posts) : []
 
   return {
     paths: postParams,
@@ -17,7 +17,7 @@ export async function getStaticProps(context) {
   const currentPost = await postsApi.getPost(context.params.slug)
 
   return {
-    props: { post: currentPost },
+    props: { post: currentPost || {} },
   }
 }
 

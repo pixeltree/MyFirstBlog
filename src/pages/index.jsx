@@ -188,14 +188,13 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || true) {
     await generateRssFeed()
   }
 
   return {
     props: {
-      posts: (await postsApi.getPosts())
-        // .slice(0, 4)
+      posts: ( await postsApi.getPosts() || [{}] )
     },
   }
 }

@@ -65,7 +65,7 @@ export default function PostsIndex({ posts }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: (await postsApi.getPosts()),
+      posts: (await postsApi.getPosts() || []),
     },
   }
 }
