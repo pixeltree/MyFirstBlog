@@ -19,7 +19,6 @@ const BASE_URL = process.env.SERVER_URL
 const AXIOS_BASE = axios.create({
     baseURL: BASE_URL,
     timeout: 3000,
-    rejectUnauthorized: false,
   })
 
 const JSON_CLIENT = isHyperlink(BASE_URL) ? AXIOS_BASE : false
