@@ -17,7 +17,7 @@ export const isHyperlink = (input) => {
 const BASE_URL = process.env.SERVER_URL || 'https://localhost:5001'
 
 const AXIOS_BASE = axios.create({
-    baseURL: baseUrl,
+    baseURL: BASE_URL,
     timeout: 3000,
     rejectUnauthorized: false,
   })
