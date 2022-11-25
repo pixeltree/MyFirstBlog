@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
-import postsApi from "@/api/posts"
+import { getPosts, getPost } from "@/api/postsApi"
 
 function Post({ post }) {
   const date = new Date(post.createdDate)
@@ -65,7 +65,7 @@ export default function PostsIndex({ posts }) {
 export async function getStaticProps() {
   return {
     props: {
-      posts: (await postsApi.getPosts() || []),
+      posts: (await getPosts() || []),
     },
   }
 }

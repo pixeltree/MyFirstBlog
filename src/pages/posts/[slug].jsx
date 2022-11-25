@@ -1,9 +1,9 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
-import postsApi from "@/api/posts"
+import { getPost, getPosts } from "@/api/postsApi"
 import { postParameters } from "@/utilities/postUtilities"
 
 export async function getStaticPaths() {
-  const posts = await postsApi.getPosts()
+  const posts = await getPosts()
 
   const postParams = posts ? postParameters(posts) : []
 
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const currentPost = await postsApi.getPost(context.params.slug)
+  const currentPost = await getPost(context.params.slug)
 
   return {
     props: { post: currentPost || {} },

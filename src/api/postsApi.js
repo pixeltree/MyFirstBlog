@@ -21,5 +21,3 @@ export const getPost = (postSlug) => {
     return []
   }
 }
-
-export default postsApi

@@ -2,10 +2,10 @@ import ReactDOMServer from 'react-dom/server'
 import { Feed } from 'feed'
 import { mkdir, writeFile } from 'fs/promises'
 
-import postsApi from "@/api/posts"
+import { getPosts } from "@/api/postsApi"
 
 export async function generateRssFeed() {
-  let posts = await postsApi.getPosts()
+  let posts = await getPosts()
   let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let author = {
     name: 'Spencer Sharp',

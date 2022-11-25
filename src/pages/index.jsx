@@ -19,7 +19,7 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { formatDate } from '@/lib/formatDate'
-import postsApi from "@/api/posts"
+import { getPosts } from "@/api/postsApi"
 
 function MailIcon(props) {
   return (
@@ -194,7 +194,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: ( await postsApi.getPosts() || [{}] )
+      posts: ( await getPosts() || [{}] )
     },
   }
 }
