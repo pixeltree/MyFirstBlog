@@ -1,7 +1,9 @@
 import axios from "axios"
 
+const baseUrl = process.env.SERVER_URL || 'https://localhost:5001'
+
 const JSON_CLIENT = axios.create({
-  baseURL: 'https://localhost:5001',
+  baseURL: baseUrl,
   timeout: 3000,
   rejectUnauthorized: false,
 })
