@@ -4,7 +4,7 @@ import { postParameters } from "@/utilities/postUtilities"
 
 export async function getStaticPaths() {
   const posts = await postsApi.getPosts()
-  
+
   const postParams = posts ? postParameters(posts) : []
 
   return {
