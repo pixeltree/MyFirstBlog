@@ -27,21 +27,21 @@ export async function generateRssFeed() {
     },
   })
 
-  for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
+  for (let post of posts) {
+    let url = `${siteUrl}/posts/${post.slug}`
     let html = ReactDOMServer.renderToStaticMarkup(
-      <article.component isRssFeed />
+      <div>{post.body}</div>
     )
 
     feed.addItem({
-      title: article.title,
+      title: post.title,
       id: url,
       link: url,
-      description: article.description,
+      description: post.body,
       content: html,
       author: [author],
       contributor: [author],
-      date: new Date(article.date),
+      date: new Date(post.createdDate),
     })
   }
 
