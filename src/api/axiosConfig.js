@@ -14,7 +14,7 @@ export const isHyperlink = (input) => {
   }
 }
 
-const BASE_URL = process.env.SERVER_URL
+const BASE_URL = process.env.DOTNET_SERVER_URL
 
 const AXIOS_BASE = axios.create({
     baseURL: BASE_URL,
