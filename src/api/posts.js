@@ -8,7 +8,7 @@ const postsApi = {
     }
     catch (e) {
       console.error(e)
-      return false
+      return []
     }
   },
   getPost: (postSlug) => {
@@ -18,7 +18,7 @@ const postsApi = {
     }
     catch (e) {
       console.error(e)
-      return false
+      return []
     }
   }
 }
