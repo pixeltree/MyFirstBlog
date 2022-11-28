@@ -26,8 +26,8 @@ export async function generateRssFeed() {
       json: `${siteUrl}/rss/feed.json`,
     },
   })
-
-  for (const post of posts) {
+  
+  posts.forEach((post) => {
     const url = `${siteUrl}/posts/${post.slug}`
     const html = ReactDOMServer.renderToStaticMarkup(
       <div>{post.body}</div>
@@ -43,7 +43,7 @@ export async function generateRssFeed() {
       contributor: [author],
       date: new Date(post.createdDate),
     })
-  }
+  })
 
   await mkdir('./public/rss', { recursive: true })
   await Promise.all([
