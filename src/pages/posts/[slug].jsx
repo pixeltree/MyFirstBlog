@@ -1,6 +1,6 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import { getPost, getPosts } from "@/api/postsApi"
-import { postParameters } from "@/utilities/postUtilities"
+import { postParameters } from "@/lib/postUtilities"
 
 export async function getStaticPaths() {
   const posts = await getPosts()

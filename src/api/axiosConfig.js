@@ -1,18 +1,5 @@
 import axios from "axios"
-
-/**
- * Returns true if input string is a valid url.
- * Returns false other wise
- * @param input
- * @returns {boolean}
- */
-export const isHyperlink = (input) => {
-  try {
-    return !! new URL(input, input)
-  } catch (_) {
-    return false
-  }
-}
+import { isHyperlink } from '@/lib/isHyperlink'
 
 const BASE_URL = process.env.DOTNET_SERVER_URL
 
