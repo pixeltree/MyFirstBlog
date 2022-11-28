@@ -26,7 +26,7 @@ export async function generateRssFeed() {
       json: `${siteUrl}/rss/feed.json`,
     },
   })
-  
+
   posts.forEach((post) => {
     const url = `${siteUrl}/posts/${post.slug}`
     const html = ReactDOMServer.renderToStaticMarkup(
