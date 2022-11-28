@@ -1,3 +1,8 @@
+/**
+ * Returns an object mapping the post
+ * @param posts
+ * @returns {*}
+ */
 export const postParameters = (posts) => {
   return posts.map((post) => {
     return {
