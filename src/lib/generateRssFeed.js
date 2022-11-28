@@ -2,17 +2,17 @@ import ReactDOMServer from 'react-dom/server'
 import { Feed } from 'feed'
 import { mkdir, writeFile } from 'fs/promises'
 
-import { getAllArticles } from './getAllArticles'
+import { getPosts } from "@/api/postsApi"
 
 export async function generateRssFeed() {
-  let articles = await getAllArticles()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  let author = {
+  const posts = await getPosts()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const author = {
     name: 'Spencer Sharp',
     email: 'spencer@planetaria.tech',
   }
 
-  let feed = new Feed({
+  const feed = new Feed({
     title: author.name,
     description: 'Your blog description',
     author,
@@ -27,23 +27,23 @@ export async function generateRssFeed() {
     },
   })
 
-  for (let article of articles) {
-    let url = `${siteUrl}/articles/${article.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(
-      <article.component isRssFeed />
+  posts.forEach((post) => {
+    const url = `${siteUrl}/posts/${post.slug}`
+    const html = ReactDOMServer.renderToStaticMarkup(
+      <div>{post.body}</div>
     )
 
     feed.addItem({
-      title: article.title,
+      title: post.title,
       id: url,
       link: url,
-      description: article.description,
+      description: post.body,
       content: html,
       author: [author],
       contributor: [author],
-      date: new Date(article.date),
+      date: new Date(post.createdDate),
     })
-  }
+  })
 
   await mkdir('./public/rss', { recursive: true })
   await Promise.all([
