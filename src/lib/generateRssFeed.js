@@ -5,14 +5,14 @@ import { mkdir, writeFile } from 'fs/promises'
 import { getPosts } from "@/api/postsApi"
 
 export async function generateRssFeed() {
-  let posts = await getPosts()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  let author = {
+  const posts = await getPosts()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const author = {
     name: 'Spencer Sharp',
     email: 'spencer@planetaria.tech',
   }
 
-  let feed = new Feed({
+  const feed = new Feed({
     title: author.name,
     description: 'Your blog description',
     author,
@@ -27,9 +27,9 @@ export async function generateRssFeed() {
     },
   })
 
-  for (let post of posts) {
-    let url = `${siteUrl}/posts/${post.slug}`
-    let html = ReactDOMServer.renderToStaticMarkup(
+  for (const post of posts) {
+    const url = `${siteUrl}/posts/${post.slug}`
+    const html = ReactDOMServer.renderToStaticMarkup(
       <div>{post.body}</div>
     )
 
