@@ -45,6 +45,7 @@ function DesktopNavigation(props) {
   )
 }
 
+// Should this be broken out into a lib file?
 function clamp(number, a, b) {
   let min = Math.min(a, b)
   let max = Math.max(a, b)
