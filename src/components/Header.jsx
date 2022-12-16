@@ -94,6 +94,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
+                <MobileNavItem href="/api/auth/login">Login</MobileNavItem>
               </ul>
             </nav>
           </Popover.Panel>
@@ -135,6 +136,17 @@ function DesktopNavigation(props) {
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
+        <li>
+          <a
+            href={"/api/auth/login"}
+            className={clsx(
+              'relative block px-3 py-2 transition'
+            )}
+          >
+            Login
+            <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0" />
+          </a>
+        </li>
       </ul>
     </nav>
   )

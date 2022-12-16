@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -27,11 +28,13 @@ export default function App({ Component, pageProps, router }) {
         </div>
       </div>
       <div className="relative">
-        <Header />
-        <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
-        </main>
-        <Footer />
+        <UserProvider>
+          <Header />
+          <main>
+            <Component previousPathname={previousPathname} {...pageProps} />
+          </main>
+          <Footer />
+        </UserProvider>
       </div>
     </>
   )
