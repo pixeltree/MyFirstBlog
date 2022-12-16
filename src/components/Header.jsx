@@ -7,6 +7,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import LoginLink from "@/components/LoginLink"
+import LogoutLink from "@/components/LogoutLink"
 import avatarImage from '@/images/avatar.jpg'
 
 function CloseIcon(props) {
@@ -96,6 +97,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
                 <LoginLink />
+                <LogoutLink />
               </ul>
             </nav>
           </Popover.Panel>
@@ -138,6 +140,7 @@ function DesktopNavigation(props) {
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
         <LoginLink />
+        <LogoutLink />
       </ul>
     </nav>
   )
