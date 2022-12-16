@@ -6,8 +6,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import LoginLink from "@/components/LoginLink"
-import LogoutLink from "@/components/LogoutLink"
+import LoginLogoutLink from "@/components/LoginLogoutLink"
 import avatarImage from '@/images/avatar.jpg'
 
 function CloseIcon(props) {
@@ -96,8 +95,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
-                <LoginLink />
-                <LogoutLink />
+                <LoginLogoutLink />
               </ul>
             </nav>
           </Popover.Panel>
@@ -139,8 +137,7 @@ function DesktopNavigation(props) {
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
-        <LoginLink />
-        <LogoutLink />
+        <LoginLogoutLink />
       </ul>
     </nav>
   )
