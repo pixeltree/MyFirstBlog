@@ -20,7 +20,7 @@ const LogoutButton = () => {
 
 const LoginLogoutLink = () => {
   const { isAuthenticated } = useAuth0()
-  
+
   return (
     isAuthenticated ?
       <LogoutButton /> :
