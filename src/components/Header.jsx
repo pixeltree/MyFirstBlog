@@ -1,3 +1,4 @@
+import { Fragment, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -5,8 +6,8 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
+import LoginLink from "@/components/LoginLink"
 import avatarImage from '@/images/avatar.jpg'
-import { Fragment, useEffect, useRef } from 'react'
 
 function CloseIcon(props) {
   return (
@@ -94,6 +95,7 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
                 <MobileNavItem href="/uses">Uses</MobileNavItem>
+                <LoginLink />
               </ul>
             </nav>
           </Popover.Panel>
@@ -135,6 +137,7 @@ function DesktopNavigation(props) {
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/speaking">Speaking</NavItem>
         <NavItem href="/uses">Uses</NavItem>
+        <LoginLink />
       </ul>
     </nav>
   )
